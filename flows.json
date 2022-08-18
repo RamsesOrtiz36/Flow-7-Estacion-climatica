@@ -1,0 +1,369 @@
+[
+    {
+        "id": "c381124a183f98fa",
+        "type": "tab",
+        "label": "Flow 7 G7",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e5ffb0080301cf90",
+        "type": "mqtt in",
+        "z": "c381124a183f98fa",
+        "name": "",
+        "topic": "codigoIoT/ejemplo/mqtt",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "26edfaa519e1eac1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "891568e2bc0470a2"
+            ]
+        ]
+    },
+    {
+        "id": "371f2b285cbbd644",
+        "type": "mqtt out",
+        "z": "c381124a183f98fa",
+        "name": "",
+        "topic": "codigoIoT/ejemplo/mqttin",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26edfaa519e1eac1",
+        "x": 910,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "9d8e1df06cb7dc19",
+        "type": "debug",
+        "z": "c381124a183f98fa",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e6283710e52f8c37",
+        "type": "function",
+        "z": "c381124a183f98fa",
+        "name": "ID",
+        "func": "msg.payload=msg.payload.id\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 120,
+        "wires": [
+            [
+                "284051ce93304704"
+            ]
+        ]
+    },
+    {
+        "id": "284051ce93304704",
+        "type": "ui_text",
+        "z": "c381124a183f98fa",
+        "group": "78cd0edbaffcb4cf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "ID",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 830,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4781463bb02e1260",
+        "type": "function",
+        "z": "c381124a183f98fa",
+        "name": "Temperatura",
+        "func": "msg.payload=msg.payload.temp\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 180,
+        "wires": [
+            [
+                "6f7a3f62b48e7633"
+            ]
+        ]
+    },
+    {
+        "id": "6f7a3f62b48e7633",
+        "type": "ui_text",
+        "z": "c381124a183f98fa",
+        "group": "78cd0edbaffcb4cf",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperatura",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 850,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "760c9c84b8087be0",
+        "type": "function",
+        "z": "c381124a183f98fa",
+        "name": "Humedad",
+        "func": "msg.payload=msg.payload.hum\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 240,
+        "wires": [
+            [
+                "4a5e3a0ebad5f935"
+            ]
+        ]
+    },
+    {
+        "id": "4a5e3a0ebad5f935",
+        "type": "ui_text",
+        "z": "c381124a183f98fa",
+        "group": "78cd0edbaffcb4cf",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Humedad",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 840,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "891568e2bc0470a2",
+        "type": "json",
+        "z": "c381124a183f98fa",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "e6283710e52f8c37",
+                "4781463bb02e1260",
+                "760c9c84b8087be0",
+                "9d8e1df06cb7dc19",
+                "d6c8d0a0e5739d54",
+                "78fe0d468622ee89",
+                "ab90131bb4eaaa2d"
+            ]
+        ]
+    },
+    {
+        "id": "d6c8d0a0e5739d54",
+        "type": "function",
+        "z": "c381124a183f98fa",
+        "name": "Alarma de Temperatura alta",
+        "func": "if(msg.payload.temp >36) {\n    msg.payload=\"true\"\n}\nelse\nmsg.payload=\"false\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 300,
+        "wires": [
+            [
+                "371f2b285cbbd644"
+            ]
+        ]
+    },
+    {
+        "id": "639ec6f1b9b904cc",
+        "type": "ui_chart",
+        "z": "c381124a183f98fa",
+        "name": "",
+        "group": "ef24c4d8c8e3ba68",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 850,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ab90131bb4eaaa2d",
+        "type": "function",
+        "z": "c381124a183f98fa",
+        "name": "Humedad",
+        "func": "msg.payload=msg.payload.hum\nmsg.topic=\"Humedad\"\nmsg.label=\"Humedad\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 420,
+        "wires": [
+            [
+                "639ec6f1b9b904cc"
+            ]
+        ]
+    },
+    {
+        "id": "80f18d8cad42177b",
+        "type": "debug",
+        "z": "c381124a183f98fa",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "78fe0d468622ee89",
+        "type": "function",
+        "z": "c381124a183f98fa",
+        "name": "Temperatura",
+        "func": "msg.payload=msg.payload.temp\nmsg.label=\"Temperatura\"\nmsg.topic= \"Temperatura\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 380,
+        "wires": [
+            [
+                "639ec6f1b9b904cc"
+            ]
+        ]
+    },
+    {
+        "id": "26edfaa519e1eac1",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "78cd0edbaffcb4cf",
+        "type": "ui_group",
+        "name": "Instantanea",
+        "tab": "3ae0369a73a8f74d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ef24c4d8c8e3ba68",
+        "type": "ui_group",
+        "name": "Historial",
+        "tab": "3ae0369a73a8f74d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3ae0369a73a8f74d",
+        "type": "ui_tab",
+        "name": "Estacion climatica G7",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
