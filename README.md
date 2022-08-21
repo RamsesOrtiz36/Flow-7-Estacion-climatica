@@ -19,3 +19,6 @@ El circuito para probar el correcto funcionamiento del sensor DHT11 se consiguio
 
 A su vez lo redirecciona a la bilioteca de AdaFruit
 
+
+Para el llamado de la API Openweathermap se tuvo dificultad con la sintaxis pero usamos la documentación de la misma pagina [Current air pollution data](https://openweathermap.org/api/air-pollution#current)
+
