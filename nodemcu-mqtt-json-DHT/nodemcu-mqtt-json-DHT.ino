@@ -42,12 +42,14 @@
 DHT dhtsensor(DHTPIN, DHTTYPE);
 
 //Datos de WiFi
-const char* ssid = "INFINITUM9265_2.4";  // Aquí debes poner el nombre de tu red
-const char* password = "WU8Z114ZN0";  // Aquí debes poner la contraseña de tu red
+const char* ssid = "INFINITUM1885_2.4";  // Aquí debes poner el nombre de tu red
+const char* password = "7pxYYmS6EP";  // Aquí debes poner la contraseña de tu red
+//const char* ssid = "UbeeD190-2.4G";  // Aquí debes poner el nombre de tu red
+//const char* password = "5F99F4D190";  // Aquí debes poner la contraseña de tu red
 
 //Datos del broker MQTT
-const char* mqtt_server = "192.168.1.70"; // Si estas en una red local, coloca la IP asignada, en caso contrario, coloca la IP publica
-IPAddress server(192,168,1,70);
+const char* mqtt_server = "192.168.1.65"; // Si estas en una red local, coloca la IP asignada, en caso contrario, coloca la IP publica
+IPAddress server(192,168,1,65);
 
 // Objeros
 WiFiClient espClient; // Este objeto maneja los datos de conexion WiFi
