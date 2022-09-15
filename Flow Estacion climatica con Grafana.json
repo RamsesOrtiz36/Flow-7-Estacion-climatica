@@ -1,0 +1,43 @@
+[
+    {
+        "id": "1a9c154148a722ae",
+        "type": "ui_template",
+        "z": "c97fd53da120d440",
+        "group": "8d84a5377a24de5f",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<iframe src=\"http://localhost:3000/d-solo/IfU-aeGVk/estacion-climatica?orgId=1&from=1663238546812&to=1663245862941&panelId=8\" width=\"450\" height=\"200\" frameborder=\"0\"></iframe>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 980,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d84a5377a24de5f",
+        "type": "ui_group",
+        "name": "Grafana Estacion Climatica",
+        "tab": "3ae0369a73a8f74d",
+        "order": 7,
+        "disp": true,
+        "width": "14",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3ae0369a73a8f74d",
+        "type": "ui_tab",
+        "name": "Estacion climatica G7",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
